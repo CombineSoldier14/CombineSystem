@@ -1,2 +1,3 @@
 cowsay
 termcolor
+wget
