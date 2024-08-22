@@ -1,10 +1,10 @@
 from osinterpreter import interpreter
-from commandnames import cmds
-from termcolor import colored
+import os
+
 
 def start():
     print("Welcome to...")
-    print("""
+    print(r"""
  _____                 _     _            _____           _                 
 /  __ \               | |   (_)          /  ___|         | |                
 | /  \/ ___  _ __ ___ | |__  _ _ __   ___\ `--. _   _ ___| |_ ___ _ __ ___  
