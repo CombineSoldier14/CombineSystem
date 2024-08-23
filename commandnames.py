@@ -1,10 +1,10 @@
-from CombineSystemImg.CombineSystem.commands.cowsay import cowsaycmd
-from CombineSystemImg.CombineSystem.commands.help import help
-from CombineSystemImg.CombineSystem.commands.ls import ls
-from CombineSystemImg.CombineSystem.commands.cd import cd
-from CombineSystemImg.CombineSystem.commands.read import read
-from CombineSystemImg.CombineSystem.commands.osmode import osmode
-from CombineSystemImg.CombineSystem.commands.wget import wgetcmd
+from commands.cowsay import cowsaycmd
+from commands.help import help
+from commands.ls import ls
+from commands.cd import cd
+from commands.read import read
+from commands.osmode import osmode
+from commands.wget import wgetcmd
 
 cmdnames = ["cowsay", "help", "ls", "cd", "read", "wget", "osmode"]
 
