@@ -8,7 +8,10 @@ with open("/CombineSystemImg/CombineSystem/config.json") as e:
     config = json.load(e)
 
 def interpreter():
-    r = input(f"{colored("CombineSystem", "green", attrs=["bold"])} v{config["VERSION"]} {colored("[", "magenta")}{colored(os.getcwd(), "light_blue")}{colored("]", "magenta")} -> ")
+    try:
+        r = input(f"{colored("CombineSystem", "green", attrs=["bold"])} v{config["VERSION"]} {colored("[", "magenta")}{colored(os.getcwd(), "light_blue")}{colored("]", "magenta")} -> ")
+    except EOFError:
+        return
     if r.replace(' ', '').lower() not in cmdnames:
         print(f"{colored("Error", "red", attrs=["bold"])}: The command \"{colored(x, "light_blue", attrs=["bold"])}\" was not found. Maybe you misspelled it?")
     else:
