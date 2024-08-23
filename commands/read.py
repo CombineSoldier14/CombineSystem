@@ -6,7 +6,7 @@ def read():
     except:
         print(f"{colored("Error", "red", attrs=["bold"])}: The file \"{colored(file, "light_blue", attrs=["bold"])}\" could not be found.")
         return
-    with open(file) as e:
+    with open("/CombineSystemImg/CombineSystem" + file) as e:
         try:
             print(e.read())
         except:
