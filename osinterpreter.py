@@ -5,7 +5,7 @@ import json
 import os
 import readline
 
-with open("CombineSystemImg/CombineSystem/config.json") as e:
+with open("config.json") as e:
     config = json.load(e)
 
 def interpreter():
