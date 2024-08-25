@@ -1,5 +1,5 @@
 import cowsay
 
-def cowsaycmd():
-    text = input("What should the cow say?: ")
+def cowsaycmd(arg):
+    text = arg
     return cowsay.cow(text)

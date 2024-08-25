@@ -1,13 +1,21 @@
 from termcolor import colored
+import readline
 
-def read():
+def read(arg):
+    file = arg
     try:
-        file = input("What is the file in your current directory you would like to read?: ")
+        file
     except:
-        print(f"{colored("Error", "red", attrs=["bold"])}: The file \"{colored(file, "light_blue", attrs=["bold"])}\" could not be found.")
+        print("{0}: The file \"{1}\" could not be found.".format(
+            colored("Error", "red", attrs=["bold"]),
+            colored(file, "light_blue", attrs=["bold"])
+        ))
         return
     with open("/CombineSystemImg/CombineSystem" + file) as e:
         try:
             print(e.read())
         except:
-            print(f"{colored("Error", "red", attrs=["bold"])}: The file \"{colored(file, "light_blue", attrs=["bold"])}\" cannot be read. Are you sure this is a text file?")
+            print("{}: The file \"{}\" cannot be read. Are you sure this is a text file?".format(
+                colored("Error", "red", attrs=["bold"]),
+                colored(file, "light_blue", attrs=["bold"])
+            ))

@@ -1,5 +1,5 @@
 import os
 
-def osmode():
-    x = input("Command to run in main OS: ")
+def osmode(arg):
+    x = arg
     os.system(x)

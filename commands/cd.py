@@ -1,9 +1,13 @@
 from termcolor import colored
 import os
+import readline
 
-def cd():
+def cd(arg):
     try:
-        directory = input("Directory to change into: ")
+        directory = arg
         os.chdir(directory)
     except:
-        print(f"{colored("Error", "red", attrs=["bold"])}: Directory \"{colored(directory, "light_blue", attrs=["bold"])}\" not found! Perhaps you misspelled it?")
+        print("{0}: Directory \"{1}\" not found! Perhaps you misspelled it?".format(
+            colored("Error", "red", attrs=["bold"]),
+            colored(directory, "light_blue", attrs=["bold"])
+        ))
