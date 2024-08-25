@@ -11,5 +11,6 @@ def help(arg):
     {colored("read", "light_blue", attrs=["bold"])} (file) - read a text file!\n
     {colored("osmode", "light_blue", attrs=["bold"])} (command) - run a command in OS mode, meaning it will be handled by your base OS and not CombineSystem\n
     {colored("wget", "light_blue", attrs=["bold"])} (url) - download files from URL\n
+    {colored("echo", "light_blue", attrs=["bold"])} (text) - print text in terminal
     """
     print(text)

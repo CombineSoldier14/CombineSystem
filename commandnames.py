@@ -5,8 +5,9 @@ from commands.cd import cd
 from commands.read import read
 from commands.osmode import osmode
 from commands.wget import wgetcmd
+from commands.echo import echo
 
-cmdnames = ["cowsay", "help", "ls", "cd", "read", "wget", "osmode"]
+cmdnames = ["cowsay", "help", "ls", "cd", "read", "wget", "osmode", "echo"]
 
 cmds = [
     {
@@ -36,5 +37,9 @@ cmds = [
     {
         "name":"wget",
         "func":wgetcmd
+    },
+    {
+        "name":"echo",
+        "func":echo
     }
 ]
