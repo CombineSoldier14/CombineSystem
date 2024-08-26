@@ -9,6 +9,7 @@ with open("config.json") as e:
     config = json.load(e)
 
 def interpreter():
+ while True:
     x = ""
     r = input("{0} v{1} {2}{3}{4} -> ".format(colored("CombineSystem", "green", attrs=["bold"]), 
                                           config["VERSION"], 
@@ -32,4 +33,3 @@ def interpreter():
         for y in cmds:
             if x.replace(' ', '').lower() == y["name"]:
                 y["func"](arg=arg)
-    interpreter()
