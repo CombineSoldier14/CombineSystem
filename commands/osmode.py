@@ -1,5 +1,5 @@
 import os
 
 def osmode(arg):
-    x = arg
+    x = input("Command to run in base system: ")
     os.system(x)
