@@ -25,13 +25,12 @@ def interpreter():
                 ind += 1
 
 
-        cmdind = -1
+        cmdind = 0
         arg = ""
         for comds in arr:
-            if arr[cmdind].startswith("+"):
-                arg = arr[cmdind]
-            else:
-                cmdind += 1
+            if arr[cmdind].startswith("+") == False and arr[cmdind].startswith("-") == False and arr[cmdind].startswith("/") == False:
+                arg = arg + " " + arr[cmdind]
+            cmdind += 1
 
         z = []
         for b in cmds:
@@ -44,4 +43,4 @@ def interpreter():
         else:
             for y in cmds:
                 if arr[0].lower() == y["name"]:
-                    y["func"](arg=arg, params=params)
+                    y["func"](arg=arg.replace(" ", "", 1), params=params)
