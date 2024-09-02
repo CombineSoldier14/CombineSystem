@@ -65,7 +65,7 @@ Commands:
             colored(file, "light_blue", attrs=["bold"])
         ))
         return
-    with open("/CombineSystemImg/CombineSystem" + file) as e:
+    with open(file) as e:
         try:
             print(e.read())
         except:
