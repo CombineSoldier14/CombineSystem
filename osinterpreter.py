@@ -16,7 +16,7 @@ def interpreter():
                                           colored("]", "magenta")))
     arr = r.split()
     if len(arr) != 0:
-        ind = -1
+        ind = 0
         params = []
         if " -" in r:
             for param in arr:
