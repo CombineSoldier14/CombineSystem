@@ -5,4 +5,6 @@
 
 A Python enviornment that (can be ran as an OS) is, *scientifically speaking*, the greatest operating system known to man. You can print a cow saying the funny words, therefore it is superior.
 
+In all reality, it is essentially a basic shell with added commands using its own interpreter/handler, etc. Still better than fish.
+
 **Inspired by [AlphaOS](https://github.com/AlphaGameDeveloper/AlphaOS).**
