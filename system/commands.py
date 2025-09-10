@@ -4,6 +4,7 @@ import readline
 from commandhandler import commandHandler
 import cowsay
 import wget
+import sys
 
 cmds = []
 
@@ -39,13 +40,22 @@ Commands:
    
    @handler(name="/cowsay", arg="(text)", desc=f"make a cow say your text!")
    def cowsaycmd(arg, params):
-    text = arg
+    text = ""
+    index = -1
+    for a in arg:
+       index += 1
+       text = text + " " + arg[index]
     return cowsay.cow(text)
    
    
    @handler(name="/echo", arg="(text)", desc=f"CombineSystem repeats your text!")
    def echo(arg, params):
-    print(arg)
+    text = ""
+    index = -1
+    for a in arg:
+       index += 1
+       text = text + " " + arg[index]
+    print(text)
 
 
    @handler(name="/ls", arg="", desc=f"list the files and folders in the directory you are in!")
@@ -64,13 +74,13 @@ Commands:
 
    @handler(name="/read", arg="(filepath)", desc=f"prints the contents of a text file in the terminal!") 
    def read(arg, params):
-    file = arg
+    file = arg[0]
     try:
-        arg
+        open(file)
     except:
         print("{0}: The file \"{1}\" could not be found.".format(
             colored("Error", "red", attrs=["bold"]),
-            colored(arg, "light_blue", attrs=["bold"])
+            colored(file, "light_blue", attrs=["bold"])
         ))
         return
     with open(file) as e:
@@ -85,29 +95,29 @@ Commands:
 
    @handler(name="/wget", arg="(url)", desc=f"downloads a file from a specified URL!") 
    def wgetcmd(arg, params):
-    x = arg.replace("+","",1)
+    x = arg[0].replace("+","",1)
     try:
         wget.download(x)
         print("\n")
     except:
-        print("{0}: The URL \"{1}\" is invalid. Are you sure this is a valid link to a file?\n".format(
+        print("{0}: The URL \"{1}\" is invalid. Are you sure this is a valid link to a file?".format(
             colored("Error", "red", attrs=["bold"]),
             colored(x, "light_blue", attrs=["bold"])
         ))
 
     
-   @handler(name="/rm", arg="(optional: -rf: to remove directory) (file)", desc=f"Removes a specified file or directory")
+   @handler(name="/rm", arg="(optional: -r: to remove directory) (file)", desc=f"Removes a specified file or directory")
    def rm(arg, params):
-       if "-rf" not in params:
+       if "-r" not in params:
           if not os.path.isfile(arg[0]):
-             print("{0}: File \"{1}\" not found or is a directory! Perhaps you misspelled it?\nTo delete a directory, use the \"-rf\" parameter.".format(
+             print("{0}: File \"{1}\" not found or is a directory! Perhaps you misspelled it?\nTo delete a directory, use the \"-r\" parameter.".format(
             colored("Error", "red", attrs=["bold"]),
             colored(arg[0], "light_blue", attrs=["bold"])))
           else:
              os.remove(arg[0])
        else:
           if not os.path.isdir(arg[0]):
-             print("{0}: Directory \"{1}\" not found or is a file! Perhaps you misspelled it?\nTo delete a file, do not use the \"-rf\" parameter.".format(
+             print("{0}: Directory \"{1}\" not found or is a file! Perhaps you misspelled it?\nTo delete a file, do not use the \"-r\" parameter.".format(
             colored("Error", "red", attrs=["bold"]),
             colored(arg[0], "light_blue", attrs=["bold"])))
           else:
@@ -117,3 +127,7 @@ Commands:
                 print("{0}: Directory \"{1}\" is not empty".format(
                 colored("Error", "red", attrs=["bold"]),
                 colored(arg[0], "light_blue", attrs=["bold"])))
+
+   @handler(name="/exit", arg="", desc=f"Exit CombineSystem.")
+   def exit(arg, params):
+       sys.exit()
